@@ -634,16 +634,20 @@ Rcpp::List cpp_move_swap_cases(Rcpp::List param, Rcpp::List data,
       
       descendents = cpp_find_descendents(alpha, cluster_i, i+1);
       size_descendents = descendents.size();
-      rank = floor(unif_rand() * size_descendents);
-      i_swap = descendents[rank];
+      if(size_descendents > 0){
+        rank = floor(unif_rand() * size_descendents);
+        i_swap = descendents[rank];
+      } else i_swap = 1;
+      
       // The local likelihood is defined as the likelihood computed for the
       // cases affected by the swap; these include:
       // - 'i_swap' 
       // - the descendents of 'i_swap'
       // - 'i'
       // - the descendents of 'i' (other than 'i_swap')
-
+      
       if(size_descendents > 0 && move_alpha[i_swap - 1] == TRUE && move_alpha[i] == TRUE){
+        
         local_cases = cpp_find_local_cases(alpha, cluster_i, i_swap);
         n_loc = local_cases.size();
         
