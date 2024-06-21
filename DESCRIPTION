@@ -21,7 +21,7 @@ Suggests: testthat, tigris, sf, knitr, socialmixr, rmarkdown
 VignetteBuilder: knitr
 BugReports: https://github.com/alxsrobert/o2geosocial/issues
 NeedsCompilation: yes
-Packaged: 2024-06-21 13:52:33 UTC; eidearob
+Packaged: 2024-06-21 14:19:13 UTC; eidearob
 Author: Alexis Robert [aut, cre, cph] (<https://orcid.org/0000-0002-4516-2965>),
   Sebastian Funk [aut] (<https://orcid.org/0000-0002-2842-3406>),
   Adam J Kucharski [aut] (<https://orcid.org/0000-0001-8814-9421>),

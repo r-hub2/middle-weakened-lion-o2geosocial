@@ -357,6 +357,7 @@ Rcpp::List cpp_move_alpha(Rcpp::List param, Rcpp::List data, Rcpp::List config,
         old_loglike = cpp_ll_all(data, config, param, i+1, list_custom_ll); // offset
         // proposal (+/- 1)
         rank = floor(unif_rand() * possible_ancestors.size());
+        printf("%i %i \n", possible_ancestors.size(), rank);
         new_alpha[i] = possible_ancestors[rank];
         new_kappa[i] = floor(unif_rand() * K) + 1;
         // loglike with current value
@@ -633,7 +634,6 @@ Rcpp::List cpp_move_swap_cases(Rcpp::List param, Rcpp::List data,
       descendents = cpp_find_descendents(alpha, cluster_i, i+1);
       size_descendents = descendents.size();
       rank = floor(unif_rand() * size_descendents);
-      // printf("%i %i", size_descendents, rank);
       i_swap = descendents[rank];
       // The local likelihood is defined as the likelihood computed for the
       // cases affected by the swap; these include:
